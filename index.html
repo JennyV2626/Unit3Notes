@@ -2,18 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Change Contents of an Element Notes</title>
+    <style>
+        .hidden{
+            display:none;
+        }
+    </style>
 </head>
 <body>
-    <div id="parent">
-        <input type="text" id="text1"/>
-        <button id="button1">BUTTON</button>
+    <div class="container">
+        <div class="content">
+            <h1>Change Contents Notes</h1>
+                <div class="row">
+                    <div>
+                        <label for="first">First Name</label>
+                        <input type="text" id="first" name="first_name" placeholder="Jane">
+                    </div>
+                    <div>
+                        <label for="last">Last Name</label>
+                        <input type="text" id="last" name="last_name" placeholder="Doe">
+                    </div>
+                </div>
+                <button name="clear">Clear</button>
+                <p class="hidden"></p>
+        </div>
     </div>
     <script>
-        console.log('Hello console! - line 13');
+        const clearButton = document.querySelector('[name="clear"]');
 
-        const inputElement = document.getElementById('text1');
-        const buttonElement = document.getElementById('button1');
+        const firstName = document.getElementById('first');
+        const lastName = document.getElementById('last');
+        const full = document.querySelector('p');
+
+        firstName.addEventListener('change', function(e){
+            let first = firstName.value;
+            let last = lastName.value;
+            let fullName = `${first} ${last}`;
+            if (fullName.length>1){
+                full.classList.remove("hidden")
+            } else {
+                full.classList.add("hidden")
+            }
+            full.textContent = `Hello ${fullName}!`;
+        });
+
+        lastName.addEventListener('change', function(e){
+            let first = firstName.value;
+            let last = lastName.value;
+            let fullName = `Hello ${first}${last}!`;
+            full.textContent = fullName;
+        });
+
+        clearButton.addEventListener('click', function(e){
+            firstName.value = "";
+            lastName.value = "";
+            full.textContent = "";
+        });
+
+        // UNIT 3 NOTES - EVENT TYPES
+        //console.log('Hello console! - line 13');
+
+        //const inputElement = document.getElementById('text1');
+        //const buttonElement = document.getElementById('button1');
 
         /* CHANGE VS. INPUT
         inputElement.addEventListener('change', function(e){
@@ -24,7 +75,7 @@
         });
         */
 
-        const parentElement = document.getElementById('parent');
+        //const parentElement = document.getElementById('parent');
 
         /* CLICK
         buttonElement.addEventListener('click', function(e){
@@ -54,11 +105,11 @@
         });
         */
 
-        // KeyDown
+        /* KEYDOWN
         document.addEventListener('keydown', function(e){
             console.log(`You just hit the ${e.key} key`);
         });
-
+        */
 
     </script>
 </body>

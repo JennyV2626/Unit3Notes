@@ -35,24 +35,8 @@
         const lastName = document.getElementById('last');
         const full = document.querySelector('p');
 
-        firstName.addEventListener('change', function(e){
-            let first = firstName.value;
-            let last = lastName.value;
-            let fullName = `${first} ${last}`;
-            if (fullName.length>1){
-                full.classList.remove("hidden")
-            } else {
-                full.classList.add("hidden")
-            }
-            full.textContent = `Hello ${fullName}!`;
-        });
-
-        lastName.addEventListener('change', function(e){
-            let first = firstName.value;
-            let last = lastName.value;
-            let fullName = `Hello ${first}${last}!`;
-            full.textContent = fullName;
-        });
+        firstName.addEventListener('change', nameCreator);
+        lastName.addEventListener('change', nameCreator);
 
         clearButton.addEventListener('click', function(e){
             firstName.value = "";
@@ -60,6 +44,17 @@
             full.textContent = "";
         });
 
+        function nameCreator(){
+            let first = firstName.value;
+            let last = lastName.value;
+            let fullName = `${first} {last}`;
+            if(fullName.length>1){
+                full.classList.remove("hidden")
+            } else {
+                full.classList.add("hidden")
+            }
+            full.texTContent = `Hello ${fullName}!`;
+        }
         // UNIT 3 NOTES - EVENT TYPES
         //console.log('Hello console! - line 13');
 

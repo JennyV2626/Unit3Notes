@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Color Picker</title>
+    <style>
+        .red{
+            background-color: #f6391f;
+        }
+        .green{
+            background-color: #4dc914;
+        }
+        .blue{
+            background-color: #71a7ff;
+        }
+        .pink{
+            color:pink;
+        }
+        .teal{
+            color:teal;
+        }
+        .purple{
+            color:purple;
+        }
+        .lilac{
+            background-color: #dac3ff;
+        }
+        .mint{
+            background-color: #acffb5;
+        }
+        .beige{
+            background-color: beige;
+        }
+        .grey{
+            color: #374151;
+        }
+        .orange{
+            color: orange;
+        }
+        .brown{
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Diam sit amet nisl suscipit adipiscing bibendum est ultricies. Cursus vitae congue
+            mauris rhoncus aenean vel elit scelerisque mauris. Lacinia at quis risus sed vulputate. Amet nisl suscipit
+            adipiscing bibendum est ultricies integer quis. Fusce ut placerat orci nulla pellentesque dignissim enim.</p>
+        <div class="row">
+            <h3>Background</h3>
+            <button id="1">RED</button>
+            <button id="2">GREEN</button>
+            <button id="3">BLUE</button>
+            <button id="7">LILAC</button>
+            <button id="8">MINT</button>
+            <button id="9">BEIGE</button>
+        </div>
+        <div class="row">
+            <h3>Text</h3>
+            <button id="4">PINK</button>
+            <button id="5">TEAL</button>
+            <button id="6">PURPLE</button>
+            <button id="10">GREY</button>
+            <button id="11">ORANGE</button>
+            <button id="12">BROWN</button>
+        </div>
+        <button id="clear">CLEAR</button>
+    </div>
+</div>
+<script>
+    const content = document.querySelector('.content');
+    const red = document.getElementById('1');
+    const green = document.getElementById('2');
+    const blue = document.getElementById('3');
+    const lilac = document.getElementById('7');
+    const mint = document.getElementById('8');
+    const beige = document.getElementById('9');
+
+
+    const pink = document.getElementById('4');
+    const teal = document.getElementById('5');
+    const purple = document.getElementById('6');
+    const grey = document.getElementById('10');
+    const orange = document.getElementById('11');
+    const brown = document.getElementById('12');
+
+    const clearButton = document.getElementById('clear');
+
+    red.addEventListener('click', function(e){
+        removeBGColor();
+        content.classList.add('red');
+    });
+
+    green.addEventListener('click', function(e){
+        removeBGColor();
+        content.classList.add('green');
+    });
+
+    blue.addEventListener('click', function(e){
+        removeBGColor();
+        content.classList.add('blue');
+    });
+
+    lilac.addEventListener('click', function(e){
+        removeBGColor();
+        content.classList.add('lilac');
+    });
+
+    mint.addEventListener('click', function(e){
+        removeBGColor();
+        content.classList.add('mint');
+    });
+
+    beige.addEventListener('click', function(e){
+        removeBGColor();
+        content.classList.add('beige');
+    });
+
+    pink.addEventListener('click', function(e){
+        removeTextColor();
+        content.classList.add('pink');
+    });
+
+    teal.addEventListener('click', function(e){
+        removeTextColor();
+        content.classList.add('teal');
+    });
+
+    purple.addEventListener('click', function(e){
+        removeTextColor();
+        content.classList.add('purple');
+    });
+
+    grey.addEventListener('click', function(e){
+        removeTextColor();
+        content.classList.add('grey');
+    });
+
+    orange.addEventListener('click', function(e){
+        removeTextColor();
+        content.classList.add('orange');
+    });
+
+    brown.addEventListener('click', function(e){
+        removeTextColor();
+        content.classList.add('brown');
+    });
+
+    clearButton.addEventListener('click', function(e){
+        removeTextColor();
+        removeBGColor();
+    });
+
+    function removeBGColor(){
+        content.classList.remove('red');
+        content.classList.remove('green');
+        content.classList.remove('blue');
+        content.classList.remove('lilac');
+        content.classList.remove('mint');
+        content.classList.remove('beige');
+    }
+
+    function removeTextColor(){
+        content.classList.remove('pink');
+        content.classList.remove('teal');
+        content.classList.remove('purple');
+        content.classList.remove('grey');
+        content.classList.remove('orange');
+        content.classList.remove('brown');
+    }
+</script>
+</body>
+</html>

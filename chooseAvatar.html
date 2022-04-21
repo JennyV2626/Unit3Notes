@@ -2,9 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Choose Your Avatar!</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="container">
+    <div class="content">
+        <button id="avatar1">Character 1</button>
+        <p> </p>
+        <button id="avatar2">Character 2</button>
+        <p> </p>
+        <button id="avatar3">Character 3</button>
+        <p> </p>
+        <button id="avatar4">Character 4</button>
+        <p> </p>
+        <button id="avatar5">Character 5</button>
+        <p> </p>
+        <button id="avatar6">Character 6</button>
+        <p> </p>
+        <button id="clear">CLEAR</button>
+    </div>
+</div>
+<script>
+    const picture = document.getElementById('id');
 
+    picture.addEventListener('change', function(e){
+        picture.src=''
+    });
+
+</script>
 </body>
 </html>

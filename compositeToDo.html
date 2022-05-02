@@ -52,43 +52,34 @@
 
     submitButton.addEventListener('click', function(){
         let toDoItem = item.value;
-        addItemToIncompleteTable(toDoItem);
+        addItemToTable(toDoItem, incomplete);
         item.value = "";
     })
 
-    function addItemToIncompleteTable(toDoItem){
+    function addItemToTable(toDoItem, status){
         let newRow = document.createElement('tr');
         let descriptionTag = document.createElement('td');
         descriptionTag.textContent = toDoItem;
         newRow.appendChild(descriptionTag);
         let actionTag = document.createElement('td');
         let action = document.createElement('button');
-        action.textContent = "Mark Complete";
-        action.addEventListener('click', function(){
-            newRow.remove();
-            addItemToCompleteTable(ToDoItem);
-        })
-        actionTag.appendChild(action);
-        newRow.appendChild(actionTag);
-        incomplete.appendChild(newRow);
-    }
-
-    function addItemToCompleteTable(toDoItem){
-        let newRow = document.createElement('tr');
-        let descriptionTag = document.createElement('td');
-        descriptionTag.textContent = toDoItem;
-        newRow.appendChild(descriptionTag);
-        let actionTag = document.createElement('td');
-        let action = document.createElement('button');
-        action.textContent = "Mark Incomplete";
-        action.addEventListener('click', function(){
-            newRow.remove();
-            addItemToIncompleteTable(toDoItem);
-        })
+        if(status == 'incomplete'){
+            action.textContent = "MarkComplete"
+            action.addEventListener('click', function(){
+                newRow.remove();
+                addItemToCompleteTable(ToDoItem);
+            })
+        }
+        if(status == "complete"){
+            action.textContent = "Mark Incomplete";
+            action.addEventListener('click', function(){
+                newRow.remove();
+                addItemToIncompleteTable(toDoItem);
+            })
+        }
         actionTag.appendChild(action);
         newRow.appendChild(actionTag);
         complete.appendChild(newRow);
     }
-
 </script>
 </html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice Timers</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .green{
+            background-color: green;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .purple{
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <button id="button">Click Me</button>
+    </div>
+    <div class="row">
+        <button id="randomColor">Random BG Color!</button>
+    </div>
+</div>
+<script>
+    const myButton = document.getElementById("button");
+    const content = document.querySelector('content');
+
+    const colorButton = document.getElementById("randomColor")
+    const colorList = ['red', 'blue', 'green', 'yellow', 'purple'];
+    let randColor = colorList[Math.floor(Math.random() * colorList.length)];
+
+    myButton.addEventListener('click', function(){
+        setTimeout(function(){
+            console.log('3 seconds..')
+            myButton.remove();
+        }, 3000);
+    });
+
+    colorButton.addEventListener('click', function(){
+        setTimeout(function(){
+            content.add(randColor);
+        }, 5000);
+    });
+
+
+
+
+
+</script>
+</body>
+</html>

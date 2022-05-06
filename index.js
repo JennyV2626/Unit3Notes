@@ -5,6 +5,9 @@ let numPoints = 0;
 score.textContent = `Score: ${numPoints}`;
 buildBoard();
 
+let interval2 = setInterval(function(){
+    addWildCard('WILD CARD +5!');
+}, 5000);
 
 
 let interval = setInterval(function(){
@@ -24,10 +27,18 @@ cardList.addEventListener('click', function(e){
         numPoints++;
         return
     }
+    /* if(e.target.classList.contains('wildActive')){
+        e.target.classList.remove('wildInactive');
+        e.target.classList.add('wildInactive');
+        numPoints++;
+        return
+    }
+     */
     e.target.remove();
     let children = cardList.children;
     if(children.length < 1){
         clearInterval(interval);
+        clearInterval(interval2);
     }
 })
 
@@ -35,6 +46,14 @@ function addCard(value){
     let card = document.createElement('div');
     card.classList.add('card');
     card.classList.add('active');
+    card.innerHTML = value;
+    cardList.appendChild(card);
+}
+
+function addWildCard(value){
+    let card = document.createElement('div');
+    card.classList.add('card');
+    card.classList.add('wildActive');
     card.innerHTML = value;
     cardList.appendChild(card);
 }

@@ -6,7 +6,7 @@ score.textContent = `Score: ${numPoints}`;
 buildBoard();
 
 let interval2 = setInterval(function(){
-    addWildCard('WILD CARD +5!');
+    addWildCard('WILD CARD +5');
 }, 5000);
 
 
@@ -19,21 +19,20 @@ cardList.addEventListener('click', function(e){
     score.textContent = `Score: ${numPoints}`
     console.log(e.target);
     if(e.target.matches('.cardList')){
+        numPoints++;
         return
     }
     if(e.target.classList.contains('active')){
         e.target.classList.remove('active');
         e.target.classList.add('inactive');
+        if(e.target.classList.contains('wild')){
+            for(let i=0; i<3; i++){
+                numPoints++;
+            }
+        }
         numPoints++;
         return
     }
-    /* if(e.target.classList.contains('wildActive')){
-        e.target.classList.remove('wildInactive');
-        e.target.classList.add('wildInactive');
-        numPoints++;
-        return
-    }
-     */
     e.target.remove();
     let children = cardList.children;
     if(children.length < 1){
@@ -53,7 +52,8 @@ function addCard(value){
 function addWildCard(value){
     let card = document.createElement('div');
     card.classList.add('card');
-    card.classList.add('wildActive');
+    card.classList.add('active');
+    card.classList.add('wild');
     card.innerHTML = value;
     cardList.appendChild(card);
 }

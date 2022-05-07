@@ -7,7 +7,7 @@ buildBoard();
 
 let interval2 = setInterval(function(){
     addWildCard('WILD CARD +5');
-}, 5000);
+}, 7000);
 
 
 let interval = setInterval(function(){

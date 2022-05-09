@@ -27,6 +27,7 @@
     <div class="content">
         <button id="button">Click Me</button>
         <button id="randomColor">Random BG Color!</button>
+        <button id="cancelRandColor">Cancel Random BG</button>
     </div>
 </div>
 <script>
@@ -35,6 +36,7 @@
 
     const colorButton = document.getElementById("randomColor")
     const colorList = ['red', 'blue', 'green', 'yellow', 'purple'];
+    const cancelColor = document.getElementById("cancelRandColor");
 
     myButton.addEventListener('click', function(){
         setTimeout(function(){
@@ -52,6 +54,12 @@
             randColor.remove();
         }, 5000);
     });
+
+    cancelColor.addEventListener('click', function(){
+        if(interval){
+            clearInterval(interval);
+        }
+    })
 
 </script>
 </body>

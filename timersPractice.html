@@ -26,18 +26,15 @@
 <div class="container">
     <div class="content">
         <button id="button">Click Me</button>
-    </div>
-    <div class="row">
         <button id="randomColor">Random BG Color!</button>
     </div>
 </div>
 <script>
     const myButton = document.getElementById("button");
-    const content = document.querySelector('content');
+    const content = document.querySelector('.content');
 
     const colorButton = document.getElementById("randomColor")
     const colorList = ['red', 'blue', 'green', 'yellow', 'purple'];
-    let randColor = colorList[Math.floor(Math.random() * colorList.length)];
 
     myButton.addEventListener('click', function(){
         setTimeout(function(){
@@ -47,14 +44,14 @@
     });
 
     colorButton.addEventListener('click', function(){
-        setTimeout(function(){
-            content.add(randColor);
+        let randColor = colorList[Math.floor(Math.random() * colorList.length)];
+        setInterval(function(){
+            randColor = colorList[Math.floor(Math.random() * colorList.length)];
+            content.classList.remove(randColor);
+            content.classList.add(randColor);
+            randColor.remove();
         }, 5000);
     });
-
-
-
-
 
 </script>
 </body>
